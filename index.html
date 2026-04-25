@@ -18,7 +18,26 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            transition: all 0.3s;
         }
+        /* DARK MODE KI CSS */
+        body.dark-mode {
+            background-color: #121212;
+        }
+        body.dark-mode .container {
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 20px rgba(255,255,255,0.1);
+        }
+        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode .skills {
+            color: #ffffff;
+        }
+        body.dark-mode .motivation {
+            color: #4fd1c5;
+        }
+        body.dark-mode footer {
+            color: #aaa;
+        }
+        
         .container {
             max-width: 500px;
             width: 100%;
@@ -27,6 +46,7 @@
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             text-align: center;
+            transition: all 0.3s;
         }
         h1 {
             color: #e63946;
@@ -100,9 +120,29 @@
             color: #666;
             font-size: 14px;
         }
+        /* DARK MODE TOGGLE BUTTON */
+        .theme-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        body.dark-mode .theme-btn {
+            background: #ffd60a;
+            color: black;
+        }
     </style>
 </head>
 <body>
+    <!-- DARK MODE BUTTON - Body ke shuru mein -->
+    <button class="theme-btn" onclick="toggleDark()">🌙 Dark Mode</button>
+    
     <div class="container">
         <h1>IB Afridi - Digital Creator</h1>
         <h2>Developer | Designer | Cyber Enthusiast</h2>
@@ -112,20 +152,20 @@
         <p class="motivation">One-Sided Lover 🖤</p>
         
         <div class="social-links">
-            <a href="https://www.instagram.com/ishaqafridi017" target="_blank" class="btn insta">
-                📸 Instagram Profile
-            </a>
             <a href="https://wa.me/923332149829" target="_blank" class="btn whatsapp">
                 💬 WhatsApp Contact
+            </a>
+            <a href="https://www.instagram.com/ishaqafridi017" target="_blank" class="btn insta">
+                📸 Instagram Profile
             </a>
             <a href="https://www.tiktok.com/@ishaqafridi017" target="_blank" class="btn tiktok">
                 🎵 TikTok Profile
             </a>
-            <a href="https://www.youtube.com/@ishaqafridi017" target="_blank" class="btn youtube">
-                ▶️ YouTube Channel
-            </a>
             <a href="https://www.snapchat.com/add/ishaqafridi017" target="_blank" class="btn snapchat">
                 👻 Snapchat Profile
+            </a>
+            <a href="https://www.youtube.com/@ishaqafridi017" target="_blank" class="btn youtube">
+                ▶️ YouTube Channel
             </a>
             <a href="https://github.com/ishaq017" target="_blank" class="btn github">
                 💻 GitHub Profile
@@ -133,15 +173,29 @@
         </div>
 
         <h3>Meri Skills:</h3>
-        <ul class="skills">
-            <li>✅ HTML</li>
-            <li>✅ CSS</li>
-            <li>✅ JavaScript</li>
-        </ul>
+        <div style="margin-top: 15px; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <span style="background: #e3f2fd; color: #1976d2; padding: 8px 15px; border-radius: 20px; width: 150px; text-align: center; font-weight: bold;">✅ HTML</span>
+            <span style="background: #e8f5e9; color: #388e3c; padding: 8px 15px; border-radius: 20px; width: 150px; text-align: center; font-weight: bold;">✅ CSS</span>
+            <span style="background: #fff3e0; color: #f57c00; padding: 8px 15px; border-radius: 20px; width: 150px; text-align: center; font-weight: bold;">🔜 JavaScript</span>
+            <span style="background: #fce4ec; color: #c2185b; padding: 8px 15px; border-radius: 20px; width: 150px; text-align: center; font-weight: bold;">🔜 GitHub</span>
+        </div>
 
         <footer>
             <p>© 2026 IB Afridi | Tech King 👑</p>
         </footer>
     </div>
+
+    <!-- JAVASCRIPT - Body ke sab se neeche, </body> se pehle -->
+    <script>
+        function toggleDark() {
+            document.body.classList.toggle('dark-mode');
+            let btn = document.querySelector('.theme-btn');
+            if(document.body.classList.contains('dark-mode')) {
+                btn.innerHTML = '☀️ Light Mode';
+            } else {
+                btn.innerHTML = '🌙 Dark Mode';
+            }
+        }
+    </script>
 </body>
 </html>
